@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col s6 offset-s3 z-depth-1">
+        <h4 class="header center">Liste des clients</h4>   
+        <table class="striped">
+            <thead>
+            <tr>
+              
+                <th>Nom</th>
+                <th>Prénom</th>
+            </tr>
+            </thead>
+        
+            <tbody>
+            <tr *ngFor='let client of clients' (click)="selectedItem(client)"
+            [style.background-color]="client.id === clientSelected.id ? '#68ADFF' : ''">
+
+                     <td>{{client.nom}}</td>
+                     <td>{{client.prenom}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="row" *ngIf="clientSelected.id != 0">
+    <h4 class="header center">Détails</h4> 
+    <div class="col s6 offset-s3 z-depth-1">
+        <p>Adresse: {{ clientSelected.adresse }}</p>
+    </div>
+</div>
+

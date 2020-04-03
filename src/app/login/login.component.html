@@ -1,0 +1,46 @@
+<div class="row">
+    <div class="col s12 m8 offset-m2">
+        <h4 class="header center">Veuillez vous authentifier</h4>   
+    </div>  
+    
+</div>
+
+<div class="row">
+    <div class="col s6 offset-s3 z-depth-1 padding10" id="panell">
+        <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+            <!-- Nom d'utilisateur -->
+            <div class="row">
+                <div class="col s12 m6">
+                    <p class="label-style">Utilisateur: </p> 
+                </div>
+                <div class="col s12 m6">
+                    <input type="text" class="form-control" id="nom"
+                    [(ngModel)]="utilisateur.nom" name="nom"
+                    required
+                    pattern="^[a-zA-Z0-9àéèç]{1,25}$">
+                </div>
+            </div>
+            <!-- Mot de passe d'utilisateur --> 
+            <div class="row">
+                <div class="col s12 m6">
+                    <p class="label-style">Mot de passe :</p>
+                </div>
+                <div class=" col s12 m6">
+                    <input type="password" class="form-control" id="motdepasse"
+                    [(ngModel)]="utilisateur.motdepasse" name="motdepasse"
+                    required
+                    pattern="^[a-zA-Z0-9àéèç]{1,25}$">
+                </div>
+            </div>
+
+            <!-- Submit button -->
+        
+                <button type="submit"
+                    class="waves-effect waves-light btn floatright"
+                    [disabled]="!loginForm.form.valid">
+                Valider</button>
+            
+        </form>
+
+    </div>
+</div>
